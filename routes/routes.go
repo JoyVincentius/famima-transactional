@@ -15,9 +15,8 @@ func RegisterRoutes(r *gin.Engine) {
 	protected := r.Group("/protected")
 	protected.Use(middleware.AuthMiddleware()) // Panggil middleware sebagai fungsi
 	{
-		protected.GET("/data", func(c *gin.Context) {
-			c.String(200, "Data Karyawan Terlindungi")
-		})
+		protected.GET("/data", controllers.GetAllKaryawan) // Endpoint untuk mendapatkan semua data karyawan
+        protected.GET("/data/:id", controllers.GetKaryawanByID) // Endpoint untuk mendapatkan detail karyawan berdasarkan ID
 
 		// Rute untuk absensi
 		protected.POST("/absensi", controllers.Absensi)

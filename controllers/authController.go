@@ -4,16 +4,34 @@ import (
 	"database/sql"
 	"famima-transactional/models"
 	"famima-transactional/utils"
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
-var db *sql.DB
+var (
+	db     *sql.DB
+	gormDB *gorm.DB
+)
 
 func SetDB(database *sql.DB) {
 	db = database
+
+	var err error
+	gormDB, err = gorm.Open(mysql.New(mysql.Config{
+		Conn: db,
+	}), &gorm.Config{})
+	if err != nil {
+		log.Fatal("Failed to connect to database:", err)
+	}
+}
+
+func GetGormDB() *gorm.DB {
+	return gormDB
 }
 
 func Register(c *gin.Context) {

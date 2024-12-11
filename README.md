@@ -1,9 +1,10 @@
 # Proyek Absensi Karyawan
 
-Proyek ini adalah aplikasi manajemen absensi karyawan yang dibangun menggunakan Go dan framework Gin untuk kebutuhan technical test di Family Mart. Aplikasi ini memungkinkan pengguna untuk mendaftar, login dan melakukan absensi.
+Proyek ini adalah aplikasi manajemen absensi karyawan yang dibangun menggunakan Go, framework Gin dan GORM library untuk kebutuhan technical test di Family Mart. Aplikasi ini memungkinkan pengguna untuk melihat list karyawan, mendaftarkan karyawan, login dan melakukan absensi.
 
 ## Fitur Utama
 
+- List karyawan
 - Mendaftarkan karyawan
 - Autentikasi pengguna
 - Mencatat absensi karyawan
